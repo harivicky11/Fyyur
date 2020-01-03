@@ -177,7 +177,6 @@ def show_venue(venue_id):
         "city": venue.city,
         "state": venue.state,
         "phone": venue.phone,
-        "website": venue.website,
         "facebook_link": venue.facebook_link,
         "seeking_talent": venue.seeking_talent,
         "seeking_description": venue.seeking_description,
@@ -213,7 +212,6 @@ def create_venue_submission():
         phone_validator(phone)
         genres = form.genres.data
         facebook_link = form.facebook_link.data
-        website = form.website.data
         image_link = form.image_link.data
         seeking_talent = True if form.seeking_talent.data == 'Yes' else False
         seeking_description = form.seeking_description.data
@@ -221,7 +219,7 @@ def create_venue_submission():
         # create new Venue from form data
         venue = Venue(name=name, city=city, state=state, address=address,
                       phone=phone, genres=genres, facebook_link=facebook_link,
-                      website=website, image_link=image_link,
+                      image_link=image_link,
                       seeking_talent=seeking_talent,
                       seeking_description=seeking_description)
 
@@ -376,7 +374,6 @@ def show_artist(artist_id):
         "city": artist.city,
         "state": artist.state,
         "phone": artist.phone,
-        "website": artist.website,
         "facebook_link": artist.facebook_link,
         "seeking_venue": artist.seeking_venue,
         "seeking_description": artist.seeking_description,
@@ -406,7 +403,6 @@ def edit_artist(artist_id):
         "city": artist.city,
         "state": artist.state,
         "phone": artist.phone,
-        "website": artist.website,
         "facebook_link": artist.facebook_link,
         "seeking_venue": artist.seeking_venue,
         "seeking_description": artist.seeking_description,
@@ -438,7 +434,6 @@ def edit_artist_submission(artist_id):
         phone_validator(artist.phone)
         artist.facebook_link = form.facebook_link.data
         artist.image_link = form.image_link.data
-        artist.website = form.website.data
         artist.seeking_venue = True if form.seeking_venue.data == 'Yes' else False
         artist.seeking_description = form.seeking_description.data
 
@@ -481,7 +476,6 @@ def edit_venue(venue_id):
         "city": venue.city,
         "state": venue.state,
         "phone": venue.phone,
-        "website": venue.website,
         "facebook_link": venue.facebook_link,
         "seeking_talent": venue.seeking_talent,
         "seeking_description": venue.seeking_description,
@@ -513,7 +507,6 @@ def edit_venue_submission(venue_id):
         # validate phone num
         phone_validator(venue.phone)
         venue.facebook_link = form.facebook_link.data
-        venue.website = form.website.data
         venue.image_link = form.image_link.data
         venue.seeking_talent = True if form.seeking_talent.data == 'Yes' else False
         venue.seeking_description = form.seeking_description.data
@@ -561,7 +554,6 @@ def create_artist_submission():
         phone_validator(phone)
         genres = form.genres.data
         facebook_link = form.facebook_link.data
-        website = form.website.data
         image_link = form.image_link.data
         seeking_venue = True if form.seeking_venue.data == 'Yes' else False
         seeking_description = form.seeking_description.data
@@ -569,7 +561,7 @@ def create_artist_submission():
         # create new artist from form data
         artist = Artist(name=name, city=city, state=state, phone=phone,
                         genres=genres, facebook_link=facebook_link,
-                        website=website, image_link=image_link,
+                        image_link=image_link,
                         seeking_venue=seeking_venue,
                         seeking_description=seeking_description)
 
