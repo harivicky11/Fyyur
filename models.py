@@ -31,6 +31,7 @@ class Venue(db.Model):
     image_link = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
     genres = db.Column("genres", db.ARRAY(db.String()), nullable=False)
+    website = db.Column(db.String(500))
     seeking_talent = db.Column(db.Boolean, default=True)
     seeking_description = db.Column(db.String(120))
     shows = db.relationship('Show', backref='venue', lazy=True)
@@ -51,12 +52,13 @@ class Artist(db.Model):
     genres = db.Column("genres", db.ARRAY(db.String()), nullable=False)
     image_link = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
+    website = db.Column(db.String(500))
     seeking_venue = db.Column(db.Boolean, default=True)
     seeking_description = db.Column(db.String(120))
     shows = db.relationship('Show', backref='artist', lazy=True)
 
     def __repr__(self):
-        return f'<Venue {self.id} {self.name}>'
+        return f'<Artist {self.id} {self.name}>'
 
     # TODO: implement any missing fields, as a database migration using Flask-Migrate --> Completed
 

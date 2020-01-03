@@ -72,5 +72,27 @@
 	</div>
 </section>
 
+<section>
+	<a href="/artists/{{artist.id}}/edit"><button class="btn btn-primary btn-lg">Edit</button></a>
+	<button type="submit" onclick="deleteClickHandler(this)" data-id="{{artist.id}}" class="btn btn-primary btn-lg"
+		style="width: 200px;">Delete Artist</button>
+</section>
+
+<script>
+	function deleteClickHandler(e) {
+		console.log('clicked')
+		const artistId = e.dataset.id;
+		fetch('/artists/' + artistId, {
+			method: 'DELETE'
+		})
+		.then(function() {
+			window.location.href = '/artists';
+		})
+		.catch(function(e) {
+			console.log('error', e)
+		})
+	}
+</script>
+
 {% endblock %}
 
